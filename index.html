@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Visualizaciones - Nivel de Obesidad</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+	<header class="bg-secondary text-white">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <div class="container">
+		    <a class="navbar-brand" href="index.html">Nivel de Obesidad</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		      <div class="navbar-nav">
+		        <a class="nav-link active" aria-current="page" href="index.html">Tabla de datos</a>
+		        <a class="nav-link" href="scatterchart.html">Gráfico de dispersión</a>
+		        <a class="nav-link" href="barcharts.html">Gráficos de barras</a>
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+
+
+	<div class="container mt-3">
+		<h1>Tabla con los datos sobre los habitos de las personas</h1>
+		<table id="table" class="display" width="100%">
+			<thead>
+				<tr>
+					<th>Gender</th>
+					<th>Age</th>
+					<th>Height</th>
+					<th>Weight</th>
+					<th>family_history_with_overweight</th>
+					<th>FAVC</th>
+					<th>FCVC</th>
+					<th>NCP</th>
+					<th>CAEC</th>
+					<th>SMOKE</th>
+					<th>CH2O</th>
+					<th>SCC</th>
+					<th>FAF</th>
+					<th>TUE</th>
+					<th>CALC</th>
+					<th>MTRANS</th>
+					<th>NObeyesdad</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+	<hr>
+
+	<div class="container-fluid bg-secondary text-white py-4">
+		<footer class="d-flex container">
+			<div><p>Creado por <a href="https://github.com/JersonFerrer" class="text-white" target="_blank">Jerson Ferrer Marcony</a></p></div>
+			<div class="ml-auto"><p>&copy Todos los derechos reservados</p></div>
+		</footer>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#table').DataTable({
+				"ajax": "./js/people.json",
+				"columns": [
+					{"data": "Gender"},
+					{"data": "Age"},
+					{"data": "Height"},
+					{"data": "Weight"},
+					{"data": "family_history_with_overweight"},
+					{"data": "FAVC"},
+					{"data": "FCVC"},
+					{"data": "NCP"},
+					{"data": "CAEC"},
+					{"data": "SMOKE"},
+					{"data": "CH2O"},
+					{"data": "SCC"},
+					{"data": "FAF"},
+					{"data": "TUE"},
+					{"data": "CALC"},
+					{"data": "MTRANS"},
+					{"data": "NObeyesdad"},
+				],
+				"scrollX": true
+			});
+		});
+	</script>
+</body>
+</html>
